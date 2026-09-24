@@ -1,0 +1,36 @@
+model: models/yolov8n-pose.pt   # or yolov8s-pose.pt / yolov11n-pose.pt
+device: 0                       # 0 = first GPU, "cpu" = CPU, null = auto
+conf: 0.40
+iou: 0.45
+tracker: botsort.yaml           # or bytetrack.yaml
+
+# Fall methods (set one or both to true, or override with --method CLI flag)
+fall:
+  pose: true
+  trajectory: true
+
+# Pose thresholds
+pose:
+  angle_threshold: 55.0         # degrees from vertical
+  aspect_threshold: 1.25
+  drop_speed_threshold: 20.0    # pixels per frame
+  consecutive_frames: 4
+
+# Trajectory settings
+trajectory:
+  window_size: 16
+  min_frames: 8
+  score_threshold: 0.65
+
+# Optional polygon zone: list of [x, y] points in pixel space.
+# Falls outside the zone are ignored. Empty/null = disabled.
+# Example: [[100, 100], [500, 100], [500, 400], [100, 400]]
+zone:
+  polygon: null
+
+# Output
+show: true
+save_video: true
+save_json: true
+output_dir: output
+imshow_scale: 0.8
