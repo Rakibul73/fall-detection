@@ -1,0 +1,5 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+# NOTE: yolov8n-pose.pt is intentionally tracked in git (offline-first clone)

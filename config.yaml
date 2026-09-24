@@ -1,0 +1,14 @@
+source: 0
+model: yolov8n-pose.pt
+device: cpu
+imgsz: 640
+conf_threshold: 0.4
+fall_confirm_seconds: 1.5
+angle_threshold_deg: 45
+history_len: 20
+telegram:
+  enabled: false
+  bot_token: ""
+  chat_id: ""
+save_clips: true
+clips_dir: data/clips
